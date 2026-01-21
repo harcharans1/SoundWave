@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 240 10% 6%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 16 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 10% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 20%;
+    --muted-foreground: 240 5% 60%;
+
+    --accent: 340 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 16 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradient colors */
+    --gradient-start: 16 100% 60%;
+    --gradient-end: 340 80% 60%;
+    
+    /* Glow effects */
+    --glow-primary: 0 0 40px hsla(16, 100%, 60%, 0.4);
+    --glow-accent: 0 0 40px hsla(340, 80%, 60%, 0.4);
+
+    --sidebar-background: 240 10% 8%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 16 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 10% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 10% 20%;
+    --sidebar-ring: 16 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins antialiased;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-r from-primary to-accent;
+  }
+
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-hover {
+    @apply hover:bg-card/80 hover:border-white/20 transition-all duration-300;
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .music-bar {
+    animation: music-bar 1s ease-in-out infinite;
+  }
+
+  .music-bar-delay-1 {
+    animation-delay: 0.2s;
+  }
+
+  .music-bar-delay-2 {
+    animation-delay: 0.4s;
+  }
+
+  .music-bar-delay-3 {
+    animation-delay: 0.6s;
+  }
+}
+
+@keyframes music-bar {
+  0%, 100% {
+    height: 8px;
+  }
+  50% {
+    height: 24px;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
